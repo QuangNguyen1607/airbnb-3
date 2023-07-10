@@ -19,9 +19,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
 						<Search></Search>
 						<UserMenu currentUser={currentUser}></UserMenu>
 					</div>
-					<Categories></Categories>
 				</Container>
 			</div>
+					<Categories></Categories>
 		</div>
 	);
 };

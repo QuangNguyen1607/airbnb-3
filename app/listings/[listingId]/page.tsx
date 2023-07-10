@@ -4,6 +4,7 @@ import {ClientOnly} from '@/app/components/ClientOnly'
 import EmptySpace from '@/app/components/EmptySpace'
 import React from 'react'
 import ListingClient from './ListingClient'
+import getReservations from '@/app/actions/getReservations'
 
 interface IParams {
 	listingId?: string
@@ -12,6 +13,8 @@ interface IParams {
 const ListingPage = async ({params}: {params: IParams}) => {
 	const listing = await getListingById(params)
 	const currentUser = await getCurrentUser()
+	const reservations = await getReservations(params)
+	console.log("🚀 ~ file: page.tsx:17 ~ ListingPage ~ reservations:", reservations)
 
 	if (!listing) {
 		return (
@@ -24,6 +27,7 @@ const ListingPage = async ({params}: {params: IParams}) => {
 		<ClientOnly>
 			<ListingClient
 				listing={listing}
+				reservations={reservations}
 				currentUser={currentUser}></ListingClient>
 		</ClientOnly>
 	)
