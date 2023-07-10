@@ -1,5 +1,3 @@
-'use client'
-import {Listing} from '@prisma/client'
 import getListings, {IListingParams} from './actions/getListings'
 import {ClientOnly} from './components/ClientOnly'
 import Container from './components/Container'
@@ -25,7 +23,7 @@ const Home = async ({searchParams}: HomeProps) => {
 		<ClientOnly>
 			<Container>
 				<div className='pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8'>
-					{listings.map(listing => (
+					{listings.map((listing: any) => (
 						<ListingCard
 							key={listing.id}
 							data={listing}
