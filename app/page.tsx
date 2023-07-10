@@ -1,4 +1,4 @@
-'useClient'
+'use client'
 import {Listing} from '@prisma/client'
 import getListings, {IListingParams} from './actions/getListings'
 import {ClientOnly} from './components/ClientOnly'
