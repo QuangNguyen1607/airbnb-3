@@ -9,15 +9,10 @@ const PropertiesPage = async () => {
 	const currentUser = await getCurrentUser()
 	if (!currentUser) {
 		return (
-			<ClientOnly>
-				<EmptySpace subtitle='Please Login' title='Unauthorized'></EmptySpace>
-			</ClientOnly>
+			<EmptySpace subtitle='Please Login' title='Unauthorized'></EmptySpace>
 		)
 	}
-
-	const listings = await getListings({
-		userId: currentUser.id,
-	})
+	const listings = await getListings({ userId: currentUser.id });
 
 	if (listings?.length === 0) {
 		return (
